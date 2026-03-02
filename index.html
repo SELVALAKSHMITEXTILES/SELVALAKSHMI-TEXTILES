@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selvalakshmi Textiles</title>
+
+    <style>
+
+/* ===== RESET ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #fff8e7;
+}
+
+/* ===== HEADER ===== */
+
+header {
+  background: rgba(44,24,16,0.8);
+  color: #fff3d6;
+  text-align: center;
+  padding: 25px 10px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header p {
+  margin: 5px 0 0;
+}
+
+/* ===== NAV ===== */
+
+nav {
+  background: #3a1f1f;
+  padding: 12px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav a {
+  color: #fbe9d0;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #ffd700;
+}
+
+/* ===== HERO ===== */
+
+.hero-banner {
+  position: relative;
+  height: 90vh;
+  background: url("images/banner-new.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+  color: white;
+}
+
+.hero-overlay {
+  background: transparent;
+}
+
+.hero-content {
+  position: relative;
+  max-width: 650px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+}
+
+.hero-content p {
+  margin: 20px 0;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-primary {
+  background: #28a745;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.btn-secondary {
+  border: 2px solid white;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* ===== SECTIONS ===== */
+
+section {
+  max-width: 1200px;
+  margin: 30px auto;
+  background: white;
+  padding: 40px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* ===== SEARCH ===== */
+
+.search-box input {
+  padding: 10px;
+  width: 250px;
+  border-radius: 5px;
+  border: 2px solid #d8b890;
+}
+
+/* ===== PRODUCT GRID ===== */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 30px;
+  align-items: start;
+}
+
+/* ===== PRODUCT CARD ===== */
+
+.product {
+  background: #fffdf7;
+  border: 1px solid #f0e0c0;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: visible; /* IMPORTANT */
+  transition: 0.3s;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+}
+
+.product img {
+    width: 100%;
+    height: auto;        /* Let image keep its ratio */
+    object-fit: contain;/* Show full image */
+    max-height: 220px;  /* Optional: limit size */
+    border-radius: 8px;
+    background: #fff;   /* Clean background */
+}
+
+.product:hover img {
+  transform: scale(1.05);
+}
+
+.product h3 {
+  color: #4b2e2e;
+  margin: 15px 0 5px;
+}
+
+/* ===== VARIANTS BUTTON ===== */
+
+.toggle-btn {
+  color: #007BFF;
+  cursor: pointer;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+/* ===== VARIANTS DROPDOWN ===== */
+
+.variants {
+  list-style: none;
+  padding: 10px;
+  margin-top: 10px;
+
+  background: #fffaf0;
+  border: 1px solid #e0cfa0;
+  border-radius: 6px;
+
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+
+  transition: max-height 0.5s ease, opacity 0.3s ease;
+}
+
+.variants.open {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.variants li {
+  padding: 6px 8px;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.9rem;
+}
+
+/* ===== ENQUIRE BUTTON ===== */
+
+.enquiry-btn {
+  background: linear-gradient(to right, #0f3d2e, #145a32); /* Dark Green */
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 15px;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.3s;
+}
+.enquiry-btn:hover {
+  background: linear-gradient(to right, #145a32, #0f3d2e);
+  transform: scale(1.03);
+}
+/* ===== FORM ===== */
+
+form input,
+form textarea {
+  width: 90%;
+  max-width: 400px;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  background: #3a6fb0;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+  background: #0f3d2e;   /* Dark Green */
+  color: #fbe9d0;
+  text-align: center;
+  padding: 20px;
+}
+
+.social a {
+  color: #ffd700;
+  text-decoration: none;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-banner {
+    height: 70vh;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header id="home" class="site-header">
+
+    <img src="images/logo.png" alt="Selvalakshmi Textiles Logo" class="site-logo">
+
+    <p>Your Trusted Partner in Quality Fabrics</p>
+
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- Hero Banner -->
+<section class="hero-banner">
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+
+    <h1>Premium Textile Fabrics<br>Crafted for Your Business</h1>
+
+    <p>
+      Wholesale manufacturer of Cotton, Gada, Roto, Jute, Melange & Duck Fabrics.
+      High quality manufacturing with modern machinery in Erode.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#products" class="btn-primary">Explore Products</a>
+      <a href="#contact" class="btn-secondary">Request Quote</a>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- Products -->
+<section id="products">
+
+<h2>Our Products</h2>
+
+<div class="search-box">
+    <input type="text" id="search" placeholder="Search products...">
+</div>
+
+<div class="product-grid">
+
+
+<!-- Product 1 -->
+<div class="product" data-name="cotton">
+<img src="images/cotton.jpg" alt="Cotton White Fabrics">
+<h3>Cotton White Fabrics</h3>
+<p>For Elegant Look</p>
+
+<span class="toggle-btn">View Variants</span>
+<ul class="variants">
+<li>20'S 63" White Gold</li>
+<li>20'S 63" White Diamond</li>
+<li>20'S 63" Platinum White</li>
+</ul>
+
+<button class="enquiry-btn">Enquire Now</button>
+</div>
+
+
+<!-- Product 2 -->
+<div class="product" data-name="gada">
+<img src="images/gada.jpg" alt="Gada Cotton Fabrics">
+<h3>Gada Cotton Fabrics</h3>
+<p>For Greater looks</p>
+
+<span class="toggle-btn">View Variants</span>
+<ul class="variants">
+<li>20'S 63" Grey Gold</li>
+<li>20'S 63" Grey Diamond</li>
+<li>20'S 63" Platinum Grey</li>
+</ul>
+
+<button class="enquiry-btn">Enquire Now</button>
+</div>
+
+
+<!-- Product 3 -->
+<div class="product" data-name="roto">
+<img src="images/roto.jpg" alt="Roto Fabrics">
+<h3>Roto Fabrics</h3>
+<p>For Offerdable yet good looks</p>
+
+<span class="toggle-btn">View Variants</span>
+<ul class="variants">
+<li>43" Silver</li>
+<li>48" Off-White</li>
+<li>58" Off-White</li>
+</ul>
+
+<button class="enquiry-btn">Enquire Now</button>
+</div>
+
+
+<!-- Product 4 -->
+<div class="product" data-name="jute">
+<img src="images/jute.jpg" alt="Jute Fabrics">
+<h3>Jute Fabrics</h3>
+<p>For Luxury and Elegant looks</p>
+
+<span class="toggle-btn">View Variants</span>
+<ul class="variants">
+<li>Oxford Jute</li>
+<li>Canvas Jute</li>
+<li>Laminated Jute</li>
+<li>Coloured/Dyed Jute</li>
+<li>Blended Jute</li>
+</ul>
+
+<button class="enquiry-btn">Enquire Now</button>
+</div>
+
+
+<!-- Product 5 -->
+<div class="product" data-name="melange">
+<img src="images/melange.jpg" alt="Melange Fabrics">
+<h3>Melange Fabrics</h3>
+<p>For Conventional looks</p>
+
+<span class="toggle-btn">View Variants</span>
+<ul class="variants">
+<li>63" Melange special</li>
+<li>66" Starched Melange</li>
+<li>Unstarched Melange</li>
+<li>Colour Options Available</li>
+</ul>
+
+<button class="enquiry-btn">Enquire Now</button>
+</div>
+
+
+<!-- Product 6 -->
+<div class="product" data-name="duck">
+<img src="images/duck.jpg" alt="Duck Fabrics">
+<h3>Duck Fabrics</h3>
+<p>For luxury,Premium,Elegant and sophisticated</p>
+
+<span class="toggle-btn">View Variants</span>
+<ul class="variants">
+<li>Cotton Duck</li>
+<li>Poly-Cotton Duck</li>
+<li>Dyed/Coloured Duck</li>
+<li>Laminated Duck</li>
+</ul>
+
+<button class="enquiry-btn">Enquire Now</button>
+</div>
+
+<!-- Product 7 -->
+<div class="product" data-name="shirtings">
+<img src="images/shirt.jpg" alt="Shirting Fabrics">
+<h3>Shirting Fabrics</h3>
+<p>For luxury,Premium,Elegant and sophisticated</p>
+
+<span class="toggle-btn">View Variants</span>
+<ul class="variants">
+<li>White shirings</li>
+<li>Colours on order </li>
+</ul>
+
+<button class="enquiry-btn">Enquire Now</button>
+</div>
+
+<!-- Product 8 -->
+<div class="product" data-name="inskirt">
+<img src="images/inskirt.jpg" alt="Inskirt ">
+<h3>Inskirts</h3>
+<p>For luxury,Premium,Elegant and sophisticated</p>
+
+<span class="toggle-btn">View Variants</span>
+<ul class="variants">
+<li>Rajarajeshwari</li>
+<li>Selvalakshmi </li>
+<li>Samruthi</li>
+<li>Annapoorani </li>
+<li>Inskirt fabrics </li>
+</ul>
+
+<button class="enquiry-btn">Enquire Now</button>
+</div>
+
+<!-- Product 9 -->
+<div class="product" data-name="templetowel">
+<img src="images/templetowel.jpg" alt="Temple Towels">
+<h3>Temple Towels</h3>
+<p>For Premium,Elegant and sophisticated</p>
+
+<span class="toggle-btn">View Variants</span>
+<ul class="variants">
+<li>Customized temple towels and Fabrics</li>
+
+</ul>
+
+<button class="enquiry-btn">Enquire Now</button>
+</div>
+</section>
+
+
+<!-- About -->
+<section id="about">
+<h2>About Us</h2>
+<p>
+Selvalakshmi Textiles is a trusted textile manufacturer and supplier
+providing premium quality fabrics for printing and garment industries.
+We focus on durability, consistency, and customer satisfaction.
+</p>
+</section>
+
+
+<!-- Contact -->
+<section id="contact">
+
+<h2>Contact Us</h2>
+
+<p>
+📍 Erode, Tamil Nadu, India <br>
+📞 +91 88259 31047 <br>
+📧 selvalakshmitextileserode@gmail.com
+</p>
+
+<form>
+<input type="text" placeholder="Your Name" required><br>
+<input type="email" placeholder="Your Email" required><br>
+<textarea rows="4" placeholder="Your Message"></textarea><br>
+<button type="submit">Send Message</button>
+</form>
+
+</section>
+
+
+<footer>
+<p>© 2026 Selvalakshmi Textiles. All Rights Reserved.</p>
+
+<div class="social">
+<a href="#">Facebook</a> |
+<a href="#">Instagram</a> |
+<a href="#">WhatsApp</a>
+</div>
+</footer>
+
+
+<!-- JavaScript -->
+<script>
+// ============ VARIANTS ============
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+
+  btn.addEventListener('click', () => {
+
+    const variants = btn.nextElementSibling;
+
+    // Close others
+    document.querySelectorAll('.variants').forEach(v => {
+      if (v !== variants) {
+        v.classList.remove('open');
+        v.previousElementSibling.textContent = 'View Variants';
+      }
+    });
+
+    // Toggle current
+    if (variants.classList.contains('open')) {
+
+      variants.classList.remove('open');
+      btn.textContent = 'View Variants';
+
+    } else {
+
+      variants.classList.add('open');
+      btn.textContent = 'Hide Variants';
+
+    }
+
+  });
+
+});
+
+
+// ============ SEARCH ============
+document.getElementById('search').addEventListener('keyup', function() {
+
+  let value = this.value.toLowerCase();
+  let products = document.querySelectorAll('.product');
+
+  products.forEach(item => {
+
+    let name = item.getAttribute('data-name').toLowerCase();
+    let title = item.querySelector('h3').textContent.toLowerCase();
+
+    if (name.includes(value) || title.includes(value)) {
+      item.style.display = "";
+    } else {
+      item.style.display = "none";
+    }
+
+  });
+
+});
+
+
+// ============ WHATSAPP ============
+document.querySelectorAll('.enquiry-btn').forEach(btn => {
+
+  btn.addEventListener('click', () => {
+
+    let product =
+      btn.closest('.product').querySelector('h3').textContent;
+
+    let phone = "918825931047";
+
+    let message =
+      "Hello, I am interested in your " + product +
+      ". Please share more details.";
+
+    let url =
+      "https://wa.me/" + phone + "?text=" +
+      encodeURIComponent(message);
+
+    window.open(url, "_blank");
+
+  });
+
+});
+</script>
+</body>
+</html>
